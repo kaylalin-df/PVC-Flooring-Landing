@@ -206,56 +206,145 @@ section{padding:80px 0}
 }
 
 /* ========================
-   Step 1 預覽區（之後刪除）
+   Hero 副區（badge + Banner 底部 bullets）
    ======================== */
-.preview-section{padding:48px 0}
-.preview-section h2{margin-bottom:8px}
-.preview-section .preview-sub{color:var(--text-light);font-size:14px;margin-bottom:32px}
-.preview-block{margin-bottom:40px}
-.preview-block h3{margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border)}
-
-.swatch-row{display:flex;gap:12px;flex-wrap:wrap}
-.swatch{
-  width:110px;height:80px;
-  border-radius:8px;
-  display:flex;align-items:flex-end;justify-content:center;
-  color:var(--white);font-family:var(--font-en);font-size:11px;
-  padding:6px;
-  border:1px solid transparent;
-}
-.swatch-light{color:var(--text-dark);border-color:var(--border)}
-
-.type-sample p{margin:8px 0}
-.type-sample .sample-label{
+.hero-badge{
   display:inline-block;
-  font-family:var(--font-en);
-  font-size:11px;
-  color:var(--text-light);
-  background:var(--bg-light);
-  padding:2px 8px;
-  border-radius:4px;
-  margin-right:10px;
-  vertical-align:middle;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.25);
+  color:var(--white);
+  font-size:13px;
+  font-weight:500;
+  padding:5px 14px;
+  border-radius:99px;
+  letter-spacing:1px;
+  margin-bottom:14px;
+  font-family:var(--font-en),var(--font-zh);
 }
 
-.button-stage{
-  background:var(--primary);
-  padding:32px;
-  border-radius:var(--radius-card);
+/* ========================
+   信任列（CIS：無 emoji / 純文字 + 細邊框）
+   ======================== */
+.trust-strip{
+  background:var(--white);
+  border-bottom:1px solid var(--border);
+  padding:24px 0;
+}
+.trust-row{
   display:flex;
-  gap:20px;
+  gap:36px;
   flex-wrap:wrap;
   align-items:center;
+  justify-content:center;
+}
+.trust-row .trust-item{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:14px;
+  color:var(--text-dark);
+  font-weight:500;
+}
+.trust-row .trust-item .num{
+  color:var(--cta-blue);
+  font-weight:700;
+}
+.trust-row .trust-item .icon{
+  width:18px;height:18px;
+  flex-shrink:0;
+  color:var(--green-dark);
+}
+.trust-row .trust-divider{
+  width:1px;
+  height:18px;
+  background:var(--border);
+}
+@media(max-width:768px){
+  .trust-row{gap:18px}
+  .trust-row .trust-divider{display:none}
 }
 
-.banner-meta{
-  background:var(--bg-light);
-  border-left:4px solid var(--cta-blue);
-  padding:14px 20px;
-  margin-top:20px;
-  border-radius:0 8px 8px 0;
+/* ========================
+   區塊標題組（s-label + h2 + s-desc）
+   ======================== */
+.section-head{
+  margin-bottom:48px;
+  max-width:760px;
 }
-.banner-meta strong{color:var(--primary)}
+.section-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.s-label{
+  font-family:var(--font-en);
+  font-size:13px;
+  font-weight:500;
+  color:var(--cta-blue);
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+.section-head h2{margin-bottom:16px}
+.s-desc{
+  font-size:16px;
+  color:var(--text-dark);
+  line-height:1.85;
+}
+
+/* ========================
+   Values — 核心優勢 3 卡
+   ======================== */
+.values-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+.value-card{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:var(--radius-card);
+  padding:40px;
+  display:flex;
+  flex-direction:column;
+  transition:border-color .3s;
+}
+.value-card:hover{border-color:var(--cta-blue)}
+.value-card .v-icon-wrap{
+  width:64px;
+  height:64px;
+  border-radius:14px;
+  background:rgba(0,73,116,.06);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:24px;
+  color:var(--primary);
+}
+.value-card .v-icon-wrap svg{
+  width:32px;
+  height:32px;
+}
+.value-card .v-num{
+  font-family:var(--font-en);
+  font-size:14px;
+  font-weight:500;
+  color:var(--cta-blue);
+  letter-spacing:2px;
+  margin-bottom:8px;
+}
+.value-card h3{margin-bottom:14px}
+.value-card p{
+  flex:1;
+  margin-bottom:16px;
+}
+.value-card .v-footnote{
+  font-size:14px;
+  color:var(--green-dark);
+  font-weight:500;
+  padding-top:14px;
+  border-top:1px solid var(--border);
+}
+
+@media(max-width:1024px){
+  .values-grid{grid-template-columns:1fr;gap:20px}
+}
 
 /* ========================
    Footer 簡式（之後 Step 5 完整化）
@@ -276,6 +365,7 @@ section{padding:80px 0}
   <div class="container">
     <div class="hero-banner-grid">
       <div>
+        <span class="hero-badge">DAFON CIRCULAR SERVICE</span>
         <h1>PVC 循環地板</h1>
         <p class="subtitle">大豐循環服務的下一步 — 從廢棄物清運到循環地板</p>
       </div>
@@ -300,74 +390,81 @@ section{padding:80px 0}
 </nav>
 
 <!-- ===== Step 1 預覽區（CIS 樣板示意，Step 2 起將被實際內容取代） ===== -->
-<section class="preview-section">
+<!-- ===== 信任列 ===== -->
+<section class="trust-strip" aria-label="認證與信任資料">
   <div class="container">
-    <h2>CIS 樣板地基（Step 1 / 6）</h2>
-    <p class="preview-sub">這頁目前是樣板示意。Step 2 起會逐步替換為實際內容區塊。</p>
+    <div class="trust-row">
+      <span class="trust-item"><span class="num">SGS</span> 檢驗</span>
+      <span class="trust-divider"></span>
+      <span class="trust-item"><span class="num">CE</span> 歐盟認證</span>
+      <span class="trust-divider"></span>
+      <span class="trust-item"><span class="num">CNS</span> 國家標準</span>
+      <span class="trust-divider"></span>
+      <span class="trust-item"><span class="num">CPC</span> 循環標誌</span>
+      <span class="trust-divider"></span>
+      <span class="trust-item"><span class="num">RCS</span> 回收聲明</span>
+      <span class="trust-divider"></span>
+      <span class="trust-item"><span class="num">MIT</span> 台灣製造</span>
+      <span class="trust-divider"></span>
+      <span class="trust-item"><span class="num">10,000+</span> B2B 既有客戶</span>
+    </div>
+  </div>
+</section>
 
-    <!-- 配色 -->
-    <div class="preview-block">
-      <h3>1. 配色（規範 A）</h3>
-      <div class="swatch-row">
-        <div class="swatch" style="background:#004974">#004974</div>
-        <div class="swatch" style="background:#099660">#099660</div>
-        <div class="swatch" style="background:#4eb47d">#4eb47d</div>
-        <div class="swatch" style="background:#186aa5">#186aa5</div>
-        <div class="swatch swatch-light" style="background:#ffffff">#ffffff</div>
-        <div class="swatch swatch-light" style="background:#fafafa">#fafafa</div>
-        <div class="swatch" style="background:#282828">#282828</div>
-        <div class="swatch" style="background:#8d8d8d">#8d8d8d</div>
-        <div class="swatch swatch-light" style="background:#cbd7de">#cbd7de</div>
-        <div class="swatch swatch-light" style="background:#bfbfbf">#bfbfbf</div>
-      </div>
+<!-- ===== 核心優勢（Values 3 卡） ===== -->
+<section class="bg-alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="s-label">Why Us</div>
+      <h2>大豐循環體系的三大關鍵</h2>
+      <p class="s-desc">市場上的 PVC 地板多為純進口、無回收通路 — 全台 PVC 地板回收率 0%，是台灣產業近 30 年未解決的最後一哩路。大豐整合自有清運通路、科技廠進廠許可與策略製造夥伴（30 年 PVC 製造經驗、日產能 2,400 坪），打造全台唯一從拆除、清運、破碎、再製到鋪設的單一循環體系。</p>
     </div>
 
-    <!-- 字級 -->
-    <div class="preview-block type-sample">
-      <h3>2. 字級系統（規範 B）</h3>
-      <h1><span class="sample-label">H1 42 / 600 #004974</span>大豐 PVC 循環地板</h1>
-      <h2><span class="sample-label">H2 32 / 600 #004974</span>區塊主標題範例</h2>
-      <h3><span class="sample-label">H3 22 / 600 #282828</span>副標／卡片標題範例</h3>
-      <p><span class="sample-label">內文 16 / 400 #282828</span>內文段落範例 — 大豐環保深耕廢棄物清運與循環再生超過 30 年，PVC 循環再生 LVT 地板是循環產業下游的最新延伸。</p>
-      <p class="text-supplement"><span class="sample-label">補充 14 / 400 #8d8d8d</span>備註／註解範例 — 統一牌價，依訂購量提供折扣。</p>
-    </div>
+    <div class="values-grid">
+      <article class="value-card">
+        <span class="v-icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M27 5c0 11-7 18-18 18-1.5 0-3-.2-4-.5C5 12 12 5 23 5h4z"/>
+            <path d="M5 28c2-8 7-13 14-15"/>
+          </svg>
+        </span>
+        <div class="v-num">01 / ZERO FORMALDEHYDE</div>
+        <h3>零甲醛拆裝</h3>
+        <p>自產黑色 PVC 底墊搭配水性感壓膠，拆除時可直接拉起、不傷原地面、不需甲醛溶劑除膠。120 坪可於 8 小時內完工，營業場所夜間施工、隔日營業。</p>
+        <span class="v-footnote">傳統除膠 $2,000/坪 → 我們 $550-650/坪</span>
+      </article>
 
-    <!-- 按鈕 -->
-    <div class="preview-block">
-      <h3>3. 按鈕（規範 C-1）</h3>
-      <div class="button-stage">
-        <a href="#" class="btn btn-primary">立即諮詢</a>
-        <a href="#" class="btn btn-outline">了解更多</a>
-      </div>
-      <p class="text-supplement" style="margin-top:12px">左：Type A 主按鈕（#186aa5 實心 / 230×54 / 圓角 8px）｜右：Type B 線框按鈕（透明底 / 2px 白框 / hover 反白）</p>
-    </div>
+      <article class="value-card">
+        <span class="v-icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12a11 11 0 0118-5l3 3"/>
+            <path d="M26 4v6h-6"/>
+            <path d="M27 20a11 11 0 01-18 5l-3-3"/>
+            <path d="M6 28v-6h6"/>
+          </svg>
+        </span>
+        <div class="v-num">02 / FULL RECYCLE</div>
+        <h3>100% 回收再製</h3>
+        <p>拆下的舊 PVC 地板由大豐回收、破碎，循環再製為下一批地板的中間夾層原料。全程不進焚化爐、不進掩埋場 — 這是台灣 PVC 地板產業近 30 年未解決的最後一哩路。</p>
+        <span class="v-footnote">全台唯一從拆除到再製的單一循環體系</span>
+      </article>
 
-    <!-- 卡片 -->
-    <div class="preview-block">
-      <h3>4. 卡片（規範 C-2）</h3>
-      <div class="card">
-        <h3 style="margin-bottom:12px">標準卡片</h3>
-        <p>白底 + 1px <code>#cbd7de</code> 邊框 + 20px 圓角 + 40px 內距，無重陰影。所有區塊卡片皆採此基底再依需求加變化。</p>
-        <p class="text-supplement" style="margin-top:8px">卡片內距與圓角 100% 符合規範 C-2。</p>
-      </div>
-    </div>
-
-    <!-- Banner 規格說明 -->
-    <div class="preview-block">
-      <h3>5. Banner（規範 C-3）</h3>
-      <div class="banner-meta">
-        <p><strong>精簡型 Banner</strong></p>
-        <p class="text-supplement">高度 Desktop 268px / Mobile 自動｜深藍底 #004974 + 白字｜左文字 + 右情境圖｜H1 標題上滑淡入、副標下滑淡入｜頁面頂部已套用，往上 scroll 即可看。</p>
-      </div>
-    </div>
-
-    <!-- 容器與斷點 -->
-    <div class="preview-block">
-      <h3>6. 容器與 RWD（規範 D）</h3>
-      <div class="card">
-        <p>最大寬度 <strong style="color:var(--primary)">1199px</strong> 置中｜Desktop 側邊留白 60px、Mobile 25px。</p>
-        <p style="margin-top:8px">斷點：≥1025 桌機 ／ 1024 平板 ／ 768 平板直 ／ 480 手機。</p>
-      </div>
+      <article class="value-card">
+        <span class="v-icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="6" width="11" height="11" rx="1.5"/>
+            <rect x="18" y="15" width="11" height="11" rx="1.5"/>
+            <path d="M14 9h3a2 2 0 012 2v3"/>
+            <path d="M18 23h-3a2 2 0 01-2-2v-3"/>
+            <path d="M16 11l2-2-2-2"/>
+            <path d="M16 21l-2 2 2 2"/>
+          </svg>
+        </span>
+        <div class="v-num">03 / WASTE TO ASSET</div>
+        <h3>廢棄物從成本變資產</h3>
+        <p>科技廠原本要付焚化費處理的 PVC 手套、矽晶圓，由大豐清運回收後再製成廠內地板。<strong class="num" style="color:var(--cta-blue)">每坪去化 25 片 12 吋晶圓 + 50 雙 PVC 手套</strong>，循環數據可納入 ESG 報告書範疇三章節。</p>
+        <span class="v-footnote">拆除 → 清運 → 破碎 → 再製 → 鋪設一條龍</span>
+      </article>
     </div>
   </div>
 </section>
@@ -375,7 +472,7 @@ section{padding:80px 0}
 <!-- ===== Footer Stub（Step 5 會做完整版） ===== -->
 <footer class="footer-stub">
   <div class="container">
-    <p>© 2026 大豐環保科技股份有限公司｜統一編號 27590900｜Step 1 mockup — footer 將於 Step 5 完整化</p>
+    <p>© 2026 大豐環保科技股份有限公司｜統一編號 27590900｜CIS Mockup Step 2 / 6 — footer 將於 Step 5 完整化</p>
   </div>
 </footer>
 
