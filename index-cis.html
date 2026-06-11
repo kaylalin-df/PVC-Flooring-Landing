@@ -347,6 +347,207 @@ section{padding:80px 0}
 }
 
 /* ========================
+   Compare 比較表
+   ======================== */
+.compare-wrap{
+  border:1px solid var(--border);
+  border-radius:var(--radius-card);
+  overflow:hidden;
+  background:var(--white);
+}
+.compare-table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:15px;
+  min-width:720px;
+}
+.compare-table thead th{
+  background:var(--primary);
+  color:var(--white);
+  font-weight:500;
+  text-align:left;
+  padding:18px 20px;
+  font-size:15px;
+}
+.compare-table thead th.col-us{
+  background:var(--green-dark);
+  position:relative;
+}
+.compare-table thead th.col-us::before{
+  content:'★';
+  margin-right:6px;
+  font-size:13px;
+}
+.compare-table th,
+.compare-table td{
+  padding:18px 20px;
+  border-bottom:1px solid var(--border);
+  vertical-align:top;
+  color:var(--text-dark);
+}
+.compare-table tbody th{
+  background:var(--bg-light);
+  font-weight:500;
+  text-align:left;
+  width:22%;
+}
+.compare-table tbody th small{
+  display:block;
+  color:var(--text-light);
+  font-size:13px;
+  font-weight:400;
+  margin-top:2px;
+}
+.compare-table td.col-us{
+  background:rgba(78,180,125,.08);
+  color:var(--text-dark);
+  font-weight:500;
+}
+.compare-table tr:last-child th,
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table small{font-size:13px;color:var(--text-light)}
+.compare-table .ok{color:var(--green-dark);font-weight:500}
+.compare-note{
+  margin-top:16px;
+  font-size:14px;
+  color:var(--text-light);
+}
+.compare-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+/* ========================
+   Cycle 循環流程（綠底服務說明區塊）
+   ======================== */
+.cycle-section{
+  background:var(--green-light);
+  color:var(--white);
+}
+.cycle-section .s-label{color:rgba(255,255,255,.85)}
+.cycle-section h2{color:var(--white)}
+.cycle-section .s-desc{color:rgba(255,255,255,.92)}
+.cycle-steps{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  position:relative;
+  margin-top:8px;
+}
+.cycle-step{
+  background:var(--white);
+  border-radius:var(--radius-card);
+  padding:32px 28px;
+  text-align:left;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.cycle-step .cs-icon-wrap{
+  width:54px;height:54px;
+  border-radius:12px;
+  background:rgba(0,73,116,.06);
+  display:inline-flex;align-items:center;justify-content:center;
+  color:var(--primary);
+}
+.cycle-step .cs-icon-wrap svg{width:28px;height:28px}
+.cycle-step .cs-num{
+  font-family:var(--font-en);
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:2px;
+  color:var(--cta-blue);
+}
+.cycle-step h3{color:var(--text-dark);margin:0}
+.cycle-step p{font-size:15px;color:var(--text-dark);margin:0;line-height:1.65}
+
+@media(max-width:1024px){
+  .cycle-steps{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .cycle-steps{grid-template-columns:1fr}
+}
+
+/* ========================
+   Scenarios 4 場景卡 + 痛點
+   ======================== */
+.scenarios-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+.scenario-card{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:var(--radius-card);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  transition:border-color .3s;
+}
+.scenario-card:hover{border-color:var(--cta-blue)}
+.scenario-card .sc-head{
+  background:var(--primary);
+  color:var(--white);
+  padding:24px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.scenario-card .sc-head svg{width:32px;height:32px;color:var(--white);flex-shrink:0}
+.scenario-card .sc-head h3{color:var(--white);font-size:18px;margin:0}
+.scenario-card .sc-body{
+  padding:24px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  flex:1;
+}
+.scenario-card .sc-body p{font-size:15px;color:var(--text-dark)}
+.scenario-card .sc-pain{
+  font-size:13px;
+  color:var(--text-light);
+  padding-top:14px;
+  border-top:1px solid var(--border);
+  margin-top:auto;
+}
+.scenario-card .sc-pain strong{color:var(--cta-blue);font-weight:500}
+
+@media(max-width:1024px){
+  .scenarios-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .scenarios-grid{grid-template-columns:1fr}
+}
+
+/* ========================
+   Impact callout（廢棄物從成本轉資產）
+   ======================== */
+.impact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+}
+.impact-card{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:var(--radius-card);
+  padding:40px;
+  border-left:4px solid var(--green-dark);
+}
+.impact-card .im-icon{
+  width:48px;height:48px;
+  color:var(--green-dark);
+  margin-bottom:18px;
+}
+.impact-card .im-icon svg{width:48px;height:48px}
+.impact-card h3{margin-bottom:12px}
+.impact-card p{font-size:16px;color:var(--text-dark);line-height:1.8}
+.impact-card strong{color:var(--primary)}
+
+@media(max-width:768px){
+  .impact-grid{grid-template-columns:1fr}
+}
+
+/* ========================
    Footer 簡式（之後 Step 5 完整化）
    ======================== */
 .footer-stub{
@@ -469,10 +670,245 @@ section{padding:80px 0}
   </div>
 </section>
 
+<!-- ===== Compare 比較表 ===== -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="s-label">Compare</div>
+      <h2>循環方案 vs 傳統進口 PVC 地板</h2>
+      <p class="s-desc">單看材料單價，進口地板看似便宜，加上除膠成本與廢棄處理費後總成本通常更高。以下為實際工程成本對照。</p>
+    </div>
+
+    <div class="compare-wrap">
+      <div class="compare-scroll">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th scope="col" style="width:22%">項目</th>
+              <th scope="col" class="col-us">大豐循環 PVC 地板</th>
+              <th scope="col">傳統進口 LVT</th>
+              <th scope="col">一般 PVC 地板</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">材料單價<small>每坪</small></th>
+              <td class="col-us">NT$ 3,600（統一牌價）</td>
+              <td>NT$ 1,500 – 2,000</td>
+              <td>NT$ 2,000 – 3,000</td>
+            </tr>
+            <tr>
+              <th scope="row">拆除 / 除膠<small>每坪</small></th>
+              <td class="col-us">NT$ 550 – 650<br><small class="ok">零甲醛直接拉起</small></td>
+              <td>NT$ 2,000<br><small>需甲醛溶劑</small></td>
+              <td>NT$ 1,500 – 2,000</td>
+            </tr>
+            <tr>
+              <th scope="row">廢棄處理</th>
+              <td class="col-us">大豐回收再製，客戶 0 元</td>
+              <td>客戶自費焚化或掩埋</td>
+              <td>客戶自費焚化或掩埋</td>
+            </tr>
+            <tr>
+              <th scope="row">ESG 數據</th>
+              <td class="col-us">循環履歷 QR Code，碳足跡數據可直接引用</td>
+              <td>無</td>
+              <td>無</td>
+            </tr>
+            <tr>
+              <th scope="row">施工時段</th>
+              <td class="col-us">可夜間施工、隔日營業</td>
+              <td>需停業除膠，異味刺鼻</td>
+              <td>需停業除膠</td>
+            </tr>
+            <tr>
+              <th scope="row">租賃方案</th>
+              <td class="col-us">NT$ 169 起／坪/月，約滿免費回收</td>
+              <td>無</td>
+              <td>無</td>
+            </tr>
+            <tr>
+              <th scope="row">10 年總成本<small>以 100 坪連鎖門市估</small></th>
+              <td class="col-us">約 NT$ 40 – 45 萬</td>
+              <td>約 NT$ 55 – 65 萬<br><small>含 2 次換裝 + 廢棄費</small></td>
+              <td>約 NT$ 50 – 60 萬</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="compare-note">＊ 以上成本為市場參考區間，實際報價依現場坪數、樓層、拆除難度、花色品項而異。</p>
+  </div>
+</section>
+
+<!-- ===== Cycle 循環流程（綠底服務說明區塊） ===== -->
+<section class="cycle-section">
+  <div class="container">
+    <div class="section-head center">
+      <div class="s-label">Circular Process</div>
+      <h2>地板的生命週期，是一個圓</h2>
+      <p class="s-desc">全台 PVC 地板回收率 0% — 這是台灣產業近 30 年未解決的最後一哩路。大豐將科技廠退役 PVC 手套與矽晶圓清運回收後，破碎再生為 LVT 地板中間夾層，每坪去化 25 片 12 吋晶圓 + 50 雙手套。</p>
+    </div>
+
+    <div class="cycle-steps">
+      <article class="cycle-step">
+        <span class="cs-icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 28V14l8-4 8 4v6"/>
+            <path d="M20 20l8-3v11H4"/>
+            <path d="M10 20v4M14 22v2M22 24v4M26 24v4"/>
+          </svg>
+        </span>
+        <div class="cs-num">STEP 01</div>
+        <h3>製造</h3>
+        <p>添加再生 PVC 料、矽晶圓粉，由策略製造夥伴接單生產。</p>
+      </article>
+
+      <article class="cycle-step">
+        <span class="cs-icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 26h20M6 22h20M6 18h20M6 14h20"/>
+            <path d="M4 10h24v18H4z"/>
+            <path d="M16 6v4"/>
+          </svg>
+        </span>
+        <div class="cs-num">STEP 02</div>
+        <h3>鋪設</h3>
+        <p>零甲醛工法施工，黑底墊＋感壓膠夜間進場，隔日營業不停業。</p>
+      </article>
+
+      <article class="cycle-step">
+        <span class="cs-icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="4" width="20" height="24" rx="2"/>
+            <path d="M10 9h12M10 14h12M10 19h12M10 24h6"/>
+          </svg>
+        </span>
+        <div class="cs-num">STEP 03</div>
+        <h3>使用</h3>
+        <p>每片地板附循環履歷 QR Code，掃碼可查使用時間、位置與追蹤數據。</p>
+      </article>
+
+      <article class="cycle-step">
+        <span class="cs-icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19L5 15l4-4"/>
+            <path d="M5 15h16a6 6 0 010 12h-3"/>
+            <path d="M23 13l4 4-4 4"/>
+            <path d="M27 17H11a6 6 0 010-12h3"/>
+          </svg>
+        </span>
+        <div class="cs-num">STEP 04</div>
+        <h3>回收再製</h3>
+        <p>大豐清運回收、破碎，100% 再製為下一批地板中間夾層原料。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Scenarios 4 場景卡 ===== -->
+<section class="bg-alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="s-label">Application Scenarios</div>
+      <h2>誰適合使用 PVC 循環地板</h2>
+      <p class="s-desc">從半導體無塵室到電信門市，從企業總部到醫療院所，循環地板已進入各類商用場域。</p>
+    </div>
+
+    <div class="scenarios-grid">
+      <article class="scenario-card">
+        <div class="sc-head">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="6" y="6" width="20" height="20" rx="2"/>
+            <path d="M10 12h12M10 16h12M10 20h6"/>
+            <path d="M22 22l3 3"/>
+          </svg>
+          <h3>科技廠 / 半導體</h3>
+        </div>
+        <div class="sc-body">
+          <p>PVC 手套與矽晶圓去化，形成廠內循環。ESD 無塵環境適用。</p>
+          <p class="sc-pain"><strong>痛點：</strong>廢棄物處理費高、ESG 範疇三難寫</p>
+        </div>
+      </article>
+
+      <article class="scenario-card">
+        <div class="sc-head">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="10" y="4" width="12" height="24" rx="2"/>
+            <path d="M14 24h4"/>
+            <path d="M16 8v6"/>
+          </svg>
+          <h3>電信 / 連鎖門市</h3>
+        </div>
+        <div class="sc-body">
+          <p>3-5 年固定換裝週期。零甲醛工法夜間施工，員工與顧客友善。</p>
+          <p class="sc-pain"><strong>痛點：</strong>施工停業損失、舊地板處理麻煩</p>
+        </div>
+      </article>
+
+      <article class="scenario-card">
+        <div class="sc-head">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 28V8l10-4 10 4v20"/>
+            <path d="M4 28h24"/>
+            <path d="M10 14h2M16 14h2M10 18h2M16 18h2M10 22h2M16 22h2"/>
+          </svg>
+          <h3>上市櫃企業辦公室</h3>
+        </div>
+        <div class="sc-body">
+          <p>ESG 報告剛需，廢棄物減量；循環履歷可直接引用範疇三章節。</p>
+          <p class="sc-pain"><strong>痛點：</strong>永續報告書找不到具體素材</p>
+        </div>
+      </article>
+
+      <article class="scenario-card">
+        <div class="sc-head">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M16 4v24M4 16h24"/>
+            <circle cx="16" cy="16" r="12"/>
+          </svg>
+          <h3>醫療 / 百貨專櫃</h3>
+        </div>
+        <div class="sc-body">
+          <p>無毒塑化劑、二氧化矽抗菌，頻繁換裝無負擔，符合衛生規範。</p>
+          <p class="sc-pain"><strong>痛點：</strong>衛生抗菌標準兼顧、檔期施工緊湊</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- Impact callout -->
+    <div class="impact-grid" style="margin-top:48px">
+      <div class="impact-card">
+        <div class="im-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="24" cy="24" r="20"/>
+            <path d="M24 14v20M30 18h-9a3 3 0 000 6h6a3 3 0 010 6h-9"/>
+          </svg>
+        </div>
+        <h3>對品牌商而言</h3>
+        <p>原本拆下的舊地板須自費焚化或掩埋，採用循環服務後由大豐回收進線，<strong>廢棄物處理成本與相關碳足跡同步歸零</strong>。</p>
+      </div>
+
+      <div class="impact-card">
+        <div class="im-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 28l-6-6 6-6"/>
+            <path d="M8 22h22a8 8 0 010 16h-4"/>
+            <path d="M34 20l6 6-6 6"/>
+            <path d="M40 26H18a8 8 0 010-16h4"/>
+          </svg>
+        </div>
+        <h3>對科技廠而言</h3>
+        <p>廢棄物由「處理成本」轉化為「廠內資產」— 原須付費焚化的 PVC 手套、矽晶圓直接轉為廠內地板，<strong>循環數據可納入企業永續報告書範疇三章節</strong>。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== Footer Stub（Step 5 會做完整版） ===== -->
 <footer class="footer-stub">
   <div class="container">
-    <p>© 2026 大豐環保科技股份有限公司｜統一編號 27590900｜CIS Mockup Step 2 / 6 — footer 將於 Step 5 完整化</p>
+    <p>© 2026 大豐環保科技股份有限公司｜統一編號 27590900｜CIS Mockup Step 3 / 6 — footer 將於 Step 5 完整化</p>
   </div>
 </footer>
 
