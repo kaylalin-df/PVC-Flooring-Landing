@@ -548,6 +548,308 @@ section{padding:80px 0}
 }
 
 /* ========================
+   Solutions 兩方案（FaaS 主推 + 買斷）
+   ======================== */
+.solutions-grid{
+  display:grid;
+  grid-template-columns:1.05fr 1fr;
+  gap:24px;
+}
+.solution-card{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:var(--radius-card);
+  padding:40px;
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  transition:border-color .3s;
+}
+.solution-card.is-main{border:2px solid var(--cta-blue);padding:39px}
+.solution-card .sol-badge-main{
+  position:absolute;
+  top:20px;
+  right:20px;
+  background:var(--green-dark);
+  color:var(--white);
+  font-size:12px;
+  font-weight:500;
+  padding:5px 14px;
+  border-radius:99px;
+  letter-spacing:1px;
+  font-family:var(--font-en);
+}
+.solution-card .sol-label{
+  font-family:var(--font-en);
+  font-size:13px;
+  font-weight:500;
+  color:var(--cta-blue);
+  letter-spacing:2px;
+  margin-bottom:8px;
+  text-transform:uppercase;
+}
+.solution-card.is-main .sol-label{color:var(--green-dark)}
+.solution-card h3{font-size:24px;margin-bottom:12px}
+.solution-card .sol-lead{
+  font-size:15px;
+  color:var(--text-dark);
+  line-height:1.7;
+  margin-bottom:20px;
+}
+.price-anchor{
+  background:var(--bg-light);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:14px 18px;
+  margin-bottom:24px;
+  display:flex;
+  align-items:baseline;
+  gap:6px;
+  flex-wrap:wrap;
+}
+.price-anchor .pa-from{
+  font-family:var(--font-en);
+  font-size:13px;
+  color:var(--text-light);
+  font-weight:500;
+}
+.price-anchor .pa-num{
+  font-family:var(--font-en);
+  font-size:26px;
+  font-weight:700;
+  color:var(--cta-blue);
+  letter-spacing:.5px;
+}
+.price-anchor .pa-unit{
+  font-size:14px;
+  color:var(--text-dark);
+}
+.sol-features{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin-bottom:24px;
+  flex:1;
+}
+.sol-feature{display:flex;gap:12px;align-items:flex-start}
+.sol-feature .sf-icon{
+  width:20px;height:20px;
+  color:var(--green-dark);
+  flex-shrink:0;
+  margin-top:2px;
+}
+.sol-feature .sf-icon svg{width:20px;height:20px}
+.sol-feature strong{
+  display:block;
+  font-size:16px;
+  font-weight:500;
+  color:var(--text-dark);
+  margin-bottom:2px;
+}
+.sol-feature p{
+  font-size:14px;
+  color:var(--text-light);
+  margin:0;
+  line-height:1.6;
+}
+.sol-options{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:8px;
+}
+.sol-options .sol-opt{
+  font-size:13px;
+  color:var(--green-dark);
+  background:rgba(9,150,96,.08);
+  border:1px solid rgba(9,150,96,.2);
+  padding:4px 10px;
+  border-radius:6px;
+  font-weight:500;
+}
+.sol-fit{
+  background:var(--bg-light);
+  border-radius:12px;
+  padding:14px 18px;
+  font-size:14px;
+  color:var(--text-dark);
+}
+.sol-fit strong{color:var(--primary);font-weight:500}
+
+@media(max-width:1024px){
+  .solutions-grid{grid-template-columns:1fr}
+}
+
+/* ========================
+   Products 花色 grid + Tabs
+   ======================== */
+.prod-tabs{
+  display:flex;
+  gap:0;
+  margin-bottom:32px;
+  border-bottom:2px solid var(--border);
+}
+.prod-tab{
+  font-family:var(--font-zh);
+  font-size:16px;
+  font-weight:500;
+  padding:14px 24px;
+  background:none;
+  border:none;
+  cursor:pointer;
+  color:var(--text-light);
+  border-bottom:2px solid transparent;
+  margin-bottom:-2px;
+  transition:all .3s;
+}
+.prod-tab:hover{color:var(--cta-blue)}
+.prod-tab.active{
+  color:var(--primary);
+  border-bottom-color:var(--cta-blue);
+}
+.prod-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+.prod-grid.hidden{display:none}
+.prod-card{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:var(--radius-card);
+  overflow:hidden;
+  transition:border-color .3s;
+}
+.prod-card:hover{border-color:var(--cta-blue)}
+.prod-swatch{
+  height:160px;
+  background-size:cover;
+  background-position:center;
+  background-color:var(--bg-light);
+}
+.prod-info{padding:14px 18px}
+.prod-info h3{
+  font-size:15px;
+  font-weight:500;
+  color:var(--text-dark);
+  margin-bottom:2px;
+}
+.prod-info p{
+  font-family:var(--font-en);
+  font-size:13px;
+  color:var(--text-light);
+  margin:0;
+}
+@media(max-width:1024px){
+  .prod-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:768px){
+  .prod-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ========================
+   Spec chips（規格列）
+   ======================== */
+.spec-row{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:32px;
+  padding-top:32px;
+  border-top:1px solid var(--border);
+}
+.spec-chip{
+  font-size:14px;
+  color:var(--text-dark);
+  background:var(--white);
+  border:1px solid var(--border);
+  padding:7px 14px;
+  border-radius:99px;
+  font-weight:500;
+}
+
+/* ========================
+   MOQ 3 卡
+   ======================== */
+.moq-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.moq-card{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:var(--radius-card);
+  padding:32px;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.moq-card.is-best{
+  border:2px solid var(--green-dark);
+  padding:31px;
+}
+.moq-best-badge{
+  position:absolute;
+  top:-12px;
+  left:24px;
+  background:var(--green-dark);
+  color:var(--white);
+  font-size:12px;
+  font-weight:500;
+  padding:4px 14px;
+  border-radius:99px;
+  letter-spacing:1px;
+  font-family:var(--font-en);
+}
+.moq-card .moq-label{
+  font-family:var(--font-en);
+  font-size:13px;
+  font-weight:500;
+  color:var(--cta-blue);
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+.moq-card.is-best .moq-label{color:var(--green-dark)}
+.moq-card .moq-num{
+  font-family:var(--font-en);
+  font-size:26px;
+  font-weight:700;
+  color:var(--text-dark);
+  line-height:1;
+}
+.moq-card .moq-num small{
+  font-family:var(--font-zh);
+  font-size:14px;
+  font-weight:400;
+  color:var(--text-light);
+  margin-left:4px;
+}
+.moq-card ul{padding:0}
+.moq-card ul li{
+  font-size:14px;
+  color:var(--text-dark);
+  line-height:1.7;
+  padding:4px 0 4px 22px;
+  position:relative;
+}
+.moq-card ul li::before{
+  content:'✓';
+  color:var(--green-dark);
+  position:absolute;
+  left:4px;
+  top:4px;
+  font-weight:500;
+}
+.moq-card.is-muted ul li::before{content:'—';color:var(--text-light)}
+.moq-card ul li strong{color:var(--primary);font-weight:500}
+
+@media(max-width:1024px){
+  .moq-grid{grid-template-columns:1fr;gap:24px}
+}
+
+/* ========================
    Footer 簡式（之後 Step 5 完整化）
    ======================== */
 .footer-stub{
@@ -905,12 +1207,249 @@ section{padding:80px 0}
   </div>
 </section>
 
+<!-- ===== Solutions 兩方案 ===== -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="s-label">Flexible Plans</div>
+      <h2>租賃為主・買斷為輔</h2>
+      <p class="s-desc">主推服務化租賃（Flooring as a Service, FaaS），將資本支出（CAPEX）轉為經常性開支（OPEX），廢棄物處理與回收作業由大豐全程負責；買斷方案則保留給自有物件、長期使用 5 年以上的案場。</p>
+    </div>
+
+    <div class="solutions-grid">
+      <!-- 主推方案 FaaS -->
+      <article class="solution-card is-main">
+        <span class="sol-badge-main">★ 主推方案 FaaS</span>
+        <div class="sol-label">Lease — Flooring as a Service</div>
+        <h3>服務化租賃方案</h3>
+        <p class="sol-lead">月租金取代一次買斷，CAPEX 轉 OPEX，廢棄物與回收全由大豐負責。適合定期換裝的門市、租賃物件。</p>
+
+        <div class="price-anchor">
+          <span class="pa-from">from</span>
+          <span class="pa-num">NT$ 169</span>
+          <span class="pa-unit">/ 坪 / 月 起</span>
+        </div>
+
+        <ul class="sol-features">
+          <li class="sol-feature">
+            <span class="sf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <div>
+              <strong>月租金，降低前期資金壓力</strong>
+              <p>租金可列當期營業費用，財務處理更靈活</p>
+            </div>
+          </li>
+          <li class="sol-feature">
+            <span class="sf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <div>
+              <strong>恢復原狀零煩惱</strong>
+              <p>約滿直接拉起，不傷原地面，免高額恢復原狀費</p>
+            </div>
+          </li>
+          <li class="sol-feature">
+            <span class="sf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <div>
+              <strong>廢棄物處理零負擔</strong>
+              <p>廢棄物處理由大豐負責，客戶廢棄物碳足跡有感降低</p>
+            </div>
+          </li>
+          <li class="sol-feature">
+            <span class="sf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <div>
+              <strong>夜間施工效率高</strong>
+              <p>120 坪可於 8 小時內完工（2 組工班，4 位師傅）</p>
+            </div>
+          </li>
+          <li class="sol-feature">
+            <span class="sf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <div>
+              <strong>租期屆滿三選項</strong>
+              <div class="sol-options">
+                <span class="sol-opt">(a) 滿 3 年免費贈送</span>
+                <span class="sol-opt">(b) 隨時舊換新</span>
+                <span class="sol-opt">(c) 到期免費回收</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="sol-fit">
+          <strong>適合：</strong>連鎖門市、電信據點、租賃辦公室、3-5 年換裝週期之場域
+        </div>
+      </article>
+
+      <!-- 輔助方案 買斷 -->
+      <article class="solution-card">
+        <div class="sol-label">Purchase — 輔助方案</div>
+        <h3>買斷方案</h3>
+        <p class="sol-lead">連工帶料一次到位，適合長期使用、自有物件，或有明確預算的案場。</p>
+
+        <div class="price-anchor">
+          <span class="pa-num">NT$ 3,600</span>
+          <span class="pa-unit">/ 坪（連工帶料・統一牌價）</span>
+        </div>
+
+        <ul class="sol-features">
+          <li class="sol-feature">
+            <span class="sf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <div>
+              <strong>一次付清，資產歸你</strong>
+              <p>地板產權屬於買方，長期使用最經濟</p>
+            </div>
+          </li>
+          <li class="sol-feature">
+            <span class="sf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <div>
+              <strong>零甲醛拆裝工法同樣適用</strong>
+              <p>黑底墊 + 感壓膠，未來拆除一樣不傷地面</p>
+            </div>
+          </li>
+          <li class="sol-feature">
+            <span class="sf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <div>
+              <strong>舊地板同樣 100% 回收</strong>
+              <p>用完後通知大豐回收，不進焚化爐</p>
+            </div>
+          </li>
+          <li class="sol-feature">
+            <span class="sf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <div>
+              <strong>循環履歷 + ESG 數據</strong>
+              <p>每筆訂單附完整數據，報告直接用</p>
+            </div>
+          </li>
+          <li class="sol-feature">
+            <span class="sf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <div>
+              <strong>買斷享 1 年保固</strong>
+              <p>表面磨耗、局部脫膠、翹曲皆在保固範圍</p>
+            </div>
+          </li>
+        </ul>
+
+        <div class="sol-fit">
+          <strong>適合：</strong>自有辦公室、工廠、長期使用 5 年以上之場域
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Products 花色 grid ===== -->
+<section class="bg-alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="s-label">Product</div>
+      <h2>PVC 循環再生 LVT 地板</h2>
+      <p class="s-desc">19 款花色，木紋 6"×36" + 石紋 18"×18" 兩種規格。每片地板搭載循環履歷 QR Code，台灣製造、接單生產。</p>
+    </div>
+
+    <div class="prod-tabs" role="tablist">
+      <button class="prod-tab active" role="tab" onclick="cisShowTab('wood',this)">木紋 6"×36"</button>
+      <button class="prod-tab" role="tab" onclick="cisShowTab('stone',this)">石紋 18"×18"</button>
+    </div>
+
+    <div class="prod-grid" id="cis-wood-grid">
+      <article class="prod-card"><div class="prod-swatch" style="background-image:url('型錄圖片/Yacuiba 亞奎瓦白  M3 97891.jpg')"></div><div class="prod-info"><h3>亞奎瓦白</h3><p>Yacuiba ・ 97891</p></div></article>
+      <article class="prod-card"><div class="prod-swatch" style="background-image:url('型錄圖片/Culpina 庫爾皮納櫸木  M3 97892.jpg')"></div><div class="prod-info"><h3>庫爾皮納櫸木</h3><p>Culpina ・ 97892</p></div></article>
+      <article class="prod-card"><div class="prod-swatch" style="background-image:url('型錄圖片/Vallenar 巴耶納爾白木  M3 97893.jpg')"></div><div class="prod-info"><h3>巴耶納爾白木</h3><p>Vallenar ・ 97893</p></div></article>
+      <article class="prod-card"><div class="prod-swatch" style="background-image:url('型錄圖片/Vallern 瓦輪白蠟木  M3 97894.jpg')"></div><div class="prod-info"><h3>瓦輪白蠟木</h3><p>Vallern ・ 97894</p></div></article>
+      <article class="prod-card"><div class="prod-swatch" style="background-image:url('型錄圖片/Melnik 梅爾尼克松木  M3 97895.jpg')"></div><div class="prod-info"><h3>梅爾尼克松木</h3><p>Melnik ・ 97895</p></div></article>
+      <article class="prod-card"><div class="prod-swatch" style="background-image:url('型錄圖片/Elowen 艾羅文楓木  M3 97896.jpg')"></div><div class="prod-info"><h3>艾羅文楓木</h3><p>Elowen ・ 97896</p></div></article>
+      <article class="prod-card"><div class="prod-swatch" style="background-image:url('型錄圖片/Trinidad 特立尼達淺木  M3 97897.jpg')"></div><div class="prod-info"><h3>特立尼達淺木</h3><p>Trinidad ・ 97897</p></div></article>
+      <article class="prod-card"><div class="prod-swatch" style="background-image:url('型錄圖片/Veracruz 維拉克魯斯木  M3 97898.jpg')"></div><div class="prod-info"><h3>維拉克魯斯木</h3><p>Veracruz ・ 97898</p></div></article>
+      <article class="prod-card"><div class="prod-swatch" style="background-image:url('型錄圖片/Tharn 薩恩榆木  M3 97899.jpg')"></div><div class="prod-info"><h3>薩恩榆木</h3><p>Tharn ・ 97899</p></div></article>
+      <article class="prod-card"><div class="prod-swatch" style="background-image:url('型錄圖片/Valric 維瑞克榆木  M3 97899.jpg')"></div><div class="prod-info"><h3>維瑞克榆木</h3><p>Valric ・ 97899</p></div></article>
+      <article class="prod-card"><div class="prod-swatch" style="background-image:url('型錄圖片/Leoben 萊奧本柚木  M3 97901.jpg')"></div><div class="prod-info"><h3>萊奧本柚木</h3><p>Leoben ・ 97901</p></div></article>
+      <article class="prod-card"><div class="prod-swatch" style="background-image:url('型錄圖片/Copiapo 科皮亞波木  M3 97902.jpg')"></div><div class="prod-info"><h3>科皮亞波木</h3><p>Copiapo ・ 97902</p></div></article>
+      <article class="prod-card"><div class="prod-swatch" style="background-image:url('型錄圖片/Heinola 黑諾拉深木  M3 97903.jpg')"></div><div class="prod-info"><h3>黑諾拉深木</h3><p>Heinola ・ 97903</p></div></article>
+    </div>
+
+    <div class="prod-grid hidden" id="cis-stone-grid">
+      <article class="prod-card"><div class="prod-swatch" style="background-image:url('型錄圖片/Tarnis 塔尼斯水磨石  M3 97904.jpg')"></div><div class="prod-info"><h3>塔尼斯水磨石</h3><p>Tarnis ・ 97904</p></div></article>
+      <article class="prod-card"><div class="prod-swatch" style="background-image:url('型錄圖片/Slomere 索梅爾水磨石  M3 97905.jpg')"></div><div class="prod-info"><h3>索梅爾水磨石</h3><p>Slomere ・ 97905</p></div></article>
+      <article class="prod-card"><div class="prod-swatch" style="background-image:url('型錄圖片/Velven 維爾文混凝土  M3 97906.jpg')"></div><div class="prod-info"><h3>維爾文混凝土</h3><p>Velven ・ 97906</p></div></article>
+      <article class="prod-card"><div class="prod-swatch" style="background-image:url('型錄圖片/Hallvern 霍爾文混凝土  M3 97907.jpg')"></div><div class="prod-info"><h3>霍爾文混凝土</h3><p>Hallvern ・ 97907</p></div></article>
+      <article class="prod-card"><div class="prod-swatch" style="background-image:url('型錄圖片/Caffarella 卡法瑞拉石岩  M3 97908.jpg')"></div><div class="prod-info"><h3>卡法瑞拉石岩</h3><p>Caffarella ・ 97908</p></div></article>
+      <article class="prod-card"><div class="prod-swatch" style="background-image:url('型錄圖片/Oakville 奧科維爾石灰岩  M3 97909.jpg')"></div><div class="prod-info"><h3>奧科維爾石灰岩</h3><p>Oakville ・ 97909</p></div></article>
+    </div>
+
+    <!-- 規格 chips -->
+    <div class="spec-row">
+      <span class="spec-chip">SGS 檢驗</span>
+      <span class="spec-chip">CE 認證</span>
+      <span class="spec-chip">CNS 國家標準</span>
+      <span class="spec-chip">MIT 台灣製造</span>
+      <span class="spec-chip">循環履歷溯源</span>
+      <span class="spec-chip">無毒塑化劑</span>
+      <span class="spec-chip">CPC 循環標誌</span>
+      <span class="spec-chip">RCS 回收聲明</span>
+      <span class="spec-chip">3.4mm 厚度</span>
+      <span class="spec-chip">UV Coating</span>
+      <span class="spec-chip">二氧化矽抗菌</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MOQ 接單生產 ===== -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="s-label">Production</div>
+      <h2>接單生產，彈性供貨</h2>
+      <p class="s-desc">日產能 2,400 坪，近零庫存接單生產。標準大貨交期統一 20 個工作日。</p>
+    </div>
+
+    <div class="moq-grid">
+      <div class="moq-card">
+        <div class="moq-label">Standard</div>
+        <div class="moq-num">120 坪<small>／ 花色起（兩棧板）</small></div>
+        <ul>
+          <li>交期 <strong>20 個工作日</strong></li>
+          <li>所有花色皆可選擇</li>
+          <li>價格享牌價 75 折</li>
+        </ul>
+      </div>
+
+      <div class="moq-card is-best">
+        <span class="moq-best-badge">★ Best Price</span>
+        <div class="moq-label">Bulk</div>
+        <div class="moq-num">1,200 坪<small>／ 以上</small></div>
+        <ul>
+          <li>交期 <strong>20 個工作日</strong></li>
+          <li>價格享牌價 <strong>65 折</strong></li>
+          <li>適合連鎖門市、大型案場</li>
+        </ul>
+      </div>
+
+      <div class="moq-card is-muted">
+        <div class="moq-label">Small Batch</div>
+        <div class="moq-num">120 坪<small>／ 以下併批</small></div>
+        <ul>
+          <li>需與其他批次併批生產</li>
+          <li>交期延長，花色選擇受限</li>
+          <li>建議來電洽詢</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== Footer Stub（Step 5 會做完整版） ===== -->
 <footer class="footer-stub">
   <div class="container">
-    <p>© 2026 大豐環保科技股份有限公司｜統一編號 27590900｜CIS Mockup Step 3 / 6 — footer 將於 Step 5 完整化</p>
+    <p>© 2026 大豐環保科技股份有限公司｜統一編號 27590900｜CIS Mockup Step 4 / 6 — footer 將於 Step 5 完整化</p>
   </div>
 </footer>
+
+<script>
+// 花色 Tab 切換
+function cisShowTab(type,btn){
+  document.getElementById('cis-wood-grid').classList.toggle('hidden',type!=='wood');
+  document.getElementById('cis-stone-grid').classList.toggle('hidden',type!=='stone');
+  document.querySelectorAll('.prod-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+}
+</script>
 
 </body>
 </html>
